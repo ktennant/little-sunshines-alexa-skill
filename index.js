@@ -15,12 +15,12 @@ const ERROR_MESSAGE = 'Sorry, an error occurred.';
 
 const data = { meals: [
     {
-        "date":"8/23/2018", 
+        "date":"9/8/2018", 
         "breakfast":"Apples", 
         "lunch":"Meat", 
         "snack":"Crackers"
     }, {
-        "date":"8/24/2018", 
+        "date":"9/9/2018", 
         "breakfast":"Blueberries", 
         "lunch":"Ziti", 
         "snack":"Yogurt"
@@ -48,27 +48,27 @@ const GetMenuIntentHandler = {
             && handlerInput.requestEnvelope.request.intent.name === 'GetMenuIntent';
     },
     handle(handlerInput) {
-        const speechText = 'Thanks!';
+        var speechText = '';
 
-        // // if date slot provided, get data from that date, if not, assume today
-        // const dateSlot = handlerInput.requestEnvelope.request.intent.slots.Date.value;
-        // var targetDate = dateSlot ? new AmazonDateParser(dateSlot) : new AmazonDateParser(Date.now());
+        // if date slot provided, get data from that date, if not, assume today
+        const dateSlot = handlerInput.requestEnvelope.request.intent.slots.Date.value;
+        var targetDate = dateSlot ? new AmazonDateParser(dateSlot) : new AmazonDateParser(Date.now());
+        var meals = data.meals.find(function(element) {
+            var elementTime = new Date(element.date).getTime();
+            var targetTime = new Date(targetDate.startDate).getTime();
+            return elementTime == targetTime;
+        });
 
-        // var meals = data.meals.find(function(element) {
-        //     //I'm sure date comparison won't be this easy
-        //     element.Date = targetDate;
-        // });
-
-        // // if meal slot provided, get that specific meal, if not, assume all meals
-        // const mealSlot = handlerInput.requestEnvelope.request.intent.slots.Meal.value;
-        // if (mealSlot)
-        // {
-        //     speechText = `For ${mealSlot}, ${meals.mealSlot} will be served.`
-        // } 
-        // else 
-        // {
-        //     speechText = `For breakfast, ${meals.breakfast} will be served. For lunch, ${meals.lunch} will be served. For snack, ${meals.snack} will be served.`
-        // }
+        // if meal slot provided, get that specific meal, if not, assume all meals
+        const mealSlot = handlerInput.requestEnvelope.request.intent.slots.Meal.value;
+        if (mealSlot)
+        {
+            speechText = `For ${mealSlot}, ${meals[mealSlot]} will be served.`
+        } 
+        else 
+        {
+            speechText = `For breakfast, ${meals.breakfast} will be served. For lunch, ${meals.lunch} will be served. For snack, ${meals.snack} will be served.`
+        }
 
         return handlerInput.responseBuilder
             .speak(speechText)
@@ -126,6 +126,6 @@ const ErrorHandler = {
 };
 
 exports.handler = Alexa.SkillBuilders.custom()
-    .addReuestHandlers(LaunchRequestHandler, CancelAndStopIntentHandler, HelpIntentHandler, GetMenuIntentHandler)
+    .addRequestHandlers(LaunchRequestHandler, CancelAndStopIntentHandler, HelpIntentHandler, GetMenuIntentHandler)
     .addErrorHandlers(ErrorHandler)
     .lambda();
