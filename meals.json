@@ -1,0 +1,33 @@
+{
+    "meals": [{
+            "date": "9/10/2018",
+            "breakfast": "Whole wheat toast with sunbutter, Fresh bananas, Organic milk",
+            "lunch": "Orange chicken with rice pilaf, Broccoli, Pineapple, Organic milk",
+            "snack": "Raisin bread, Fresh organic blueberries, Water"
+        },
+        {
+            "date": "9/11/2018",
+            "breakfast": "Maple oatmeal, Cheddar cheese cubes, Organic milk",
+            "lunch": "Chicken avocado wraps (cheese, guacamole, chicken, corn), Organic strawberries, Organic milk",
+            "snack": "Fresh organic apple slices, Sunbutter, Water"
+        },
+        {
+            "date": "9/12/2018",
+            "breakfast": "Yogurt parfait, Organic milk",
+            "lunch": "Pizza quesadilla, Fresh carrots, Applesauce, Organic milk",
+            "snack": "Homemade Hummus, Pita, Water"
+        },
+        {
+            "date": "9/13/2018",
+            "breakfast": "Hard boiled eggs, Whole wheat rolls, Organic cranberries, Organic milk",
+            "lunch": "Macaroni and cheese bowl with grilled chicken and cauliflower, Organic raspberries, Organic Milk",
+            "snack": "Fresh Oranges, Whole grain goldfish, Water"
+        },
+        {
+            "date": "9/14/2018",
+            "breakfast": "Whole wheat bagels with cream cheese, Organic blackberries, Organic milk",
+            "lunch": "Cold pasta salad with fresh vegetables, Fresh organic cherry tomatoes, Organic raisins, Organic milk",
+            "snack": "Turkey pepperoni, Mozzarella cheese, Water"
+        }
+    ]
+}

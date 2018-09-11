@@ -5,6 +5,7 @@
 
 const Alexa = require('ask-sdk-core');
 const AmazonDateParser = require('amazon-date-parser');
+const data = require('meals.json');
 
 const APP_ID = 'amzn1.ask.skill.ee67eb19-cfec-4505-bd36-ef27a2e3f451';
 const SKILL_NAME = 'Little Sunshine\'s Playhouse and Preschool';
@@ -12,20 +13,6 @@ const HELP_MESSAGE = 'All I can do right now is look at the menu. You can ask me
 const HELP_REPROMPT = 'What would you like to know?';
 const STOP_MESSAGE = 'Goodbye!';
 const ERROR_MESSAGE = 'Sorry, an error occurred.';
-
-const data = { meals: [
-    {
-        "date":"9/8/2018", 
-        "breakfast":"Apples", 
-        "lunch":"Meat", 
-        "snack":"Crackers"
-    }, {
-        "date":"9/9/2018", 
-        "breakfast":"Blueberries", 
-        "lunch":"Ziti", 
-        "snack":"Yogurt"
-    }
-]};
 
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
